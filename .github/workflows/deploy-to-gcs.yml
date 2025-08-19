@@ -31,4 +31,4 @@ jobs:
     - name: Deploy to GCS
       run: |
         # Upload all files from docs/ to the bucket
-        gsutil -m rsync -r -d docs/ gs://astrouxds-ai/docs/
+        gsutil -m rsync -r -d src/pages/components gs://astrouxds-ai/docs/
