@@ -10,6 +10,8 @@ assets:
 ---
 ## Interactive Example
 
+Testing to see if the automation works
+
 ::tag{ is=a-playground tag=rux-breadcrumb }
 
 Breadcrumbs provide a user with their current site location and allows them to quickly navigate to a parent page or previous step.

@@ -11,6 +11,8 @@ assets:
 
 ## Interactive Example
 
+Testing to see if the automation works
+
 ::tag{ is=a-playground tag=rux-checkbox }
 
 ## Rules of Thumb
