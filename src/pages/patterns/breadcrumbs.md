@@ -10,7 +10,7 @@ assets:
 ---
 ## Interactive Example
 
-Testing to see if the automation works
+Testing to see if the automation works again
 
 ::tag{ is=a-playground tag=rux-breadcrumb }
 
