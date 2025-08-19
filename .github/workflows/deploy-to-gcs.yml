@@ -1,0 +1,34 @@
+name: Deploy Docs to Google Cloud Storage
+
+on:
+  push:
+    branches: [ gcs ]
+    paths:
+      - 'src/pages/components/**'
+      - 'src/pages/patterns/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Check out the repository code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Authenticate with Google Cloud
+    - name: Authenticate to Google Cloud
+      id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+    # Set up Google Cloud SDK
+    - name: Set up Cloud SDK
+      uses: 'google-github-actions/setup-gcloud@v2'
+
+    # Deploy docs to Google Cloud Storage
+    - name: Deploy to GCS
+      run: |
+        # Upload all files from docs/ to the bucket
+        gsutil -m rsync -r -d docs/ gs://astrouxds-ai/docs/
