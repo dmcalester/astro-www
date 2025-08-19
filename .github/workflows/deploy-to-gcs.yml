@@ -30,6 +30,6 @@ jobs:
     # Deploy docs to Google Cloud Storage
     - name: Deploy to GCS
       run: |
-        # Upload all files from docs/ to the bucket
-        gsutil -m rsync -r -d src/pages/components gs://astrouxds-ai/docs/
+        # This syncs everything from current directory (.) to bucket's docs/ folder
+        gsutil -m rsync -r -d -x "\.git/.*|\.github/.*|node_modules/.*" . gs://astrouxds-ai/docs/
   
