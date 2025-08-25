@@ -1,8 +1,7 @@
 name: Deploy Docs to Google Cloud Storage
-
 on:
   push:
-    branches: [ gcs ]
+    branches: [ main ]
     paths:
       - 'src/pages/case-studies/**'
       - 'src/pages/compliance/**'
@@ -15,8 +14,7 @@ on:
       - 'src/pages/releases/**'
       - 'src/pages/resources/**'
       - 'src/pages/support/**'
-      - 'src/data/glossary.json'
-      - 'src/data/compliance.json'
+      - 'src/data/**'
 
   workflow_dispatch:
 
@@ -55,6 +53,8 @@ jobs:
         gsutil -m rsync -r -d src/pages/releases gs://astrouxds-ai/docs/releases
         gsutil -m rsync -r -d src/pages/resources gs://astrouxds-ai/docs/resources
         gsutil -m rsync -r -d src/pages/support gs://astrouxds-ai/docs/support
-        gsutil -m rsync -r -d src/data/glossary.json gs://astrouxds-ai/docs/glossary.json
-        gsutil -m rsync -r -d src/data/compliance.json gs://astrouxds-ai/docs/compliance.json
+        gsutil -m rsync -r -d src/data/glossary.json gs://astrouxds-ai/docs
+        gsutil -m rsync -r -d src/data/compliance.json gs://astrouxds-ai/docs
+        gsutil cp src/data/glossary.json gs://astrouxds-ai/docs/data/
+        gsutil cp src/data/compliance.json gs://astrouxds-ai/docs/data/
 
