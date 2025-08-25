@@ -11,6 +11,8 @@ assets:
 
 ## Interactive Example
 
+TESTING
+
 ::tag{ is=a-playground tag=rux-accordion }
 
 While Accordions are often used to present information hierarchy or hide lengthy descriptive text, they may also be used to display controls, input fields, and data visualizations.
