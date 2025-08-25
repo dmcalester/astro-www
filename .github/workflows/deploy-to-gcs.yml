@@ -4,8 +4,20 @@ on:
   push:
     branches: [ gcs ]
     paths:
+      - 'src/pages/case-studies/**'
+      - 'src/pages/compliance/**'
       - 'src/pages/components/**'
+      - 'src/pages/design-tokens/**'
+      - 'src/pages/foundations/**'
+      - 'src/pages/getting-started/**'
       - 'src/pages/patterns/**'
+      - 'src/pages/platforms/**'
+      - 'src/pages/releases/**'
+      - 'src/pages/resources/**'
+      - 'src/pages/support/**'
+      - 'src/data/glossary.json'
+      - 'src/data/compliance.json'
+
   workflow_dispatch:
 
 jobs:
@@ -32,4 +44,17 @@ jobs:
     - name: Deploy to GCS
       run: |
         # Upload all files from docs/ to the bucket
-        gsutil -m rsync -r -d src/pages/components gs://astrouxds-ai/
+        gsutil -m rsync -r -d src/pages/case-studies gs://astrouxds-ai/docs/case-studies
+        gsutil -m rsync -r -d src/pages/compliance gs://astrouxds-ai/docs/compliance
+        gsutil -m rsync -r -d src/pages/components gs://astrouxds-ai/docs/components
+        gsutil -m rsync -r -d src/pages/design-tokens gs://astrouxds-ai/docs/design-tokens
+        gsutil -m rsync -r -d src/pages/foundations gs://astrouxds-ai/docs/foundations
+        gsutil -m rsync -r -d src/pages/getting-started gs://astrouxds-ai/docs/getting-started
+        gsutil -m rsync -r -d src/pages/patterns gs://astrouxds-ai/docs/patterns
+        gsutil -m rsync -r -d src/pages/platforms gs://astrouxds-ai/docs/platforms
+        gsutil -m rsync -r -d src/pages/releases gs://astrouxds-ai/docs/releases
+        gsutil -m rsync -r -d src/pages/resources gs://astrouxds-ai/docs/resources
+        gsutil -m rsync -r -d src/pages/support gs://astrouxds-ai/docs/support
+        gsutil -m rsync -r -d src/data/glossary.json gs://astrouxds-ai/docs/glossary.json
+        gsutil -m rsync -r -d src/data/compliance.json gs://astrouxds-ai/docs/compliance.json
+
